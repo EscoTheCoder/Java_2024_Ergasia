@@ -1,5 +1,5 @@
 enum Tupoi_Erwthsewn {
-    MULTIPLE_CHOICE,
-    SINGLE_WORD,
-    FILL_IN_THE_BLANKS
+    Pollaplhs_Epologhs,
+    Sketh_Lejh,
+    Sumplhrwsh_Kenwn
 }
