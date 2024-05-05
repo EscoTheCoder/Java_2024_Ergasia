@@ -93,7 +93,7 @@ public class Main {
 
                             List<Object> apanthseis = new ArrayList<>();
                             List<Object> swstes_apanthseis = new ArrayList<>();
-                            String option = null;
+                            String option = "";
                             int i=1;
 
                             System.out.println("Epiloges (Plhkrologiste '.' gia na termatisete): ");
@@ -103,6 +103,7 @@ public class Main {
                                 apanthseis.add(option);
                                 i++;
                             }
+
 
                             System.out.print("Swstes Apanthseis (Diaxwrismenes me keno): ");
                             String[] correctAnswersArray = in.nextLine().split(" ");
@@ -136,17 +137,23 @@ public class Main {
 
                             List<Object> lista_lejewn = new ArrayList<>();
                             List<Object> lista_lejewn_se_swsth_seira = new ArrayList<>();
-                            String option;
+                            String option="";
+                            int j=1;
 
-                            System.out.print("Epiloges (Plhkrologiste '.' gia na termatisete): ");
-                            while (!(option = in.nextLine()).equals(".")) {
+                            System.out.println("Epiloges (Plhkrologiste '.' gia na termatisete): ");
+                            while (!(option.equals("."))){
+                                System.out.print(j+")");
+                                option = in.nextLine();
                                 lista_lejewn.add(option);
+                                j++;
                             }
 
                             System.out.print("Swstes Apanthseis (Diaxwrismenes me keno): ");
-                            String[] correctAnswersArray = in.nextLine().split(" ");
-                            for (String correctAnswer : correctAnswersArray) {
-                                lista_lejewn_se_swsth_seira.add(Integer.parseInt(correctAnswer));
+                            Object[] correctAnswersArray = in.nextLine().split(" ");
+                            for (Object correctAnswer : correctAnswersArray) {
+                                if(lista_lejewn.contains(correctAnswer)) {
+                                    lista_lejewn_se_swsth_seira.add(correctAnswer);
+                                }
                             }
                             Lista_Erwthsewn.add(new Erwthsh_SumplhrwshKenwn(Code, Perigrafh, lista_lejewn, lista_lejewn_se_swsth_seira));
                         }
