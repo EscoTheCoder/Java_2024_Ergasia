@@ -74,21 +74,34 @@ public class Main {
                     case 2: {
                         System.out.print("Tupos Erwthshs: ");
                         String tupos_erwthshs = in.nextLine().toUpperCase();
-                        if (tupos_erwthshs.equalsIgnoreCase(Tupoi_Erwthsewn.Pollaplhs_Epologhs.toString().toUpperCase())) {
+                        //elegxos egkurothtas gia swsto Tupo Erwthshs
+                        while (!tupos_erwthshs.equals(Tupoi_Erwthsewn.Pollaplhs_Epologhs.toString().toUpperCase()) &&
+                                !tupos_erwthshs.equals(Tupoi_Erwthsewn.Sketh_Lejh.toString().toUpperCase()) &&
+                                !tupos_erwthshs.equals(Tupoi_Erwthsewn.Sumplhrwsh_Kenwn.toString().toUpperCase())) {
+                            System.out.print("Janadwse ton Tupo Erwthshs: ");
+                            tupos_erwthshs = in.nextLine().toUpperCase();
+                        }
+
+
+                        if (tupos_erwthshs.equals(Tupoi_Erwthsewn.Pollaplhs_Epologhs.toString().toUpperCase())) {
                             System.out.print("Code: ");
                             int Code = in.nextInt();
                             in.nextLine(); //fix to bug me to extra \n
 
-                            System.out.println("Perigrafh: ");
+                            System.out.print("Perigrafh: ");
                             String Perigrafh = in.nextLine();
 
                             List<Object> apanthseis = new ArrayList<>();
                             List<Object> swstes_apanthseis = new ArrayList<>();
-                            String option;
+                            String option = null;
+                            int i=1;
 
-                            System.out.print("Epiloges (Plhkrologiste '.' gia na termatisete): ");
-                            while (!(option = in.nextLine()).equals(".")) {
+                            System.out.println("Epiloges (Plhkrologiste '.' gia na termatisete): ");
+                            while (!(option.equals("."))){
+                                System.out.print(i+")");
+                                option = in.nextLine();
                                 apanthseis.add(option);
+                                i++;
                             }
 
                             System.out.print("Swstes Apanthseis (Diaxwrismenes me keno): ");
@@ -258,23 +271,23 @@ public class Main {
 
                     case 6: {
 
-                        //Xrhsh lejikou-hashmap gia apothikeush Ajiologoumenou - plithos swston apanthsewn
-                        Map<Ajiologoumenos, Integer> correctAnswersCountPerAssessee = new HashMap<>();
-                        for (Apanthsh apanthsh : Lista_Apanthsewn) {
-                            Ajiologoumenos ajiologoumenos = apanthsh.getAjiologoumenos();
-                            boolean correct = isCorrect(apanthsh); // Υποθέτουμε ότι υπάρχει μια μέθοδος isCorrect που επιστρέφει true αν η απάντηση είναι σωστή
-                            correctAnswersCountPerAssessee.merge(ajiologoumenos, isCorrect ? 1 : 0, Integer::sum);
-                        }
-
-                        // Ταξινόμηση του Map με βάση τον αριθμό των σωστών απαντήσεων
-                        List<Map.Entry<Ajiologoumenos, Integer>> sortedList = new ArrayList<>(correctAnswersCountPerAssessee.entrySet());
-                        sortedList.sort(Map.Entry.<Ajiologoumenos, Integer>comparingByValue().reversed());
-
-                        // Εμφάνιση του πλήθους των σωστών απαντήσεων ανά αξιολογούμενο
-                        System.out.println("Πλήθος σωστών απαντήσεων ανά αξιολογούμενο:");
-                        for (Map.Entry<Ajiologoumenos, Integer> entry : sortedList) {
-                            System.out.println(entry.getKey() + ": " + entry.getValue());
-                        }
+//                        //Xrhsh lejikou-hashmap gia apothikeush Ajiologoumenou - plithos swston apanthsewn
+//                        Map<Ajiologoumenos, Integer> correctAnswersCountPerAssessee = new HashMap<>();
+//                        for (Apanthsh apanthsh : Lista_Apanthsewn) {
+//                            Ajiologoumenos ajiologoumenos = apanthsh.getAjiologoumenos();
+//                            boolean correct = isCorrect(apanthsh); // Υποθέτουμε ότι υπάρχει μια μέθοδος isCorrect που επιστρέφει true αν η απάντηση είναι σωστή
+//                            correctAnswersCountPerAssessee.merge(ajiologoumenos, isCorrect ? 1 : 0, Integer::sum);
+//                        }
+//
+//                        // Ταξινόμηση του Map με βάση τον αριθμό των σωστών απαντήσεων
+//                        List<Map.Entry<Ajiologoumenos, Integer>> sortedList = new ArrayList<>(correctAnswersCountPerAssessee.entrySet());
+//                        sortedList.sort(Map.Entry.<Ajiologoumenos, Integer>comparingByValue().reversed());
+//
+//                        // Εμφάνιση του πλήθους των σωστών απαντήσεων ανά αξιολογούμενο
+//                        System.out.println("Πλήθος σωστών απαντήσεων ανά αξιολογούμενο:");
+//                        for (Map.Entry<Ajiologoumenos, Integer> entry : sortedList) {
+//                            System.out.println(entry.getKey() + ": " + entry.getValue());
+//                        }
 
                     }
 

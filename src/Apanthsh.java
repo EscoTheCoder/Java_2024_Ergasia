@@ -34,25 +34,6 @@ public class Apanthsh {
         return apanthsh;
     }
 
-        public boolean isCorrect() {
-            if (erwthsh instanceof Erwthsh_PollaplhsEpiloghs) {
-                // Εάν η ερώτηση είναι πολλαπλής επιλογής, ελέγχουμε αν η απάντηση είναι σωστή
-                List<Object> swstesApanthseis = ((Erwthsh_PollaplhsEpiloghs) erwthsh).getSwstesApanthseis();
-                return swstesApanthseis.containsAll((List<Object>) apanthsh) && ((List<Object>) apanthsh).containsAll(swstesApanthseis);
-            } else if (erwthsh instanceof Erwthsh_SumplhrwshKenwn) {
-                // Εάν η ερώτηση είναι συμπλήρωσης κενών, ελέγχουμε αν η απάντηση είναι ίδια με τις σωστές απαντήσεις
-                List<Object> swstesApanthseis = ((Erwthsh_SumplhrwshKenwn) erwthsh).getListaLejewnSeSwsthSeira();
-                return swstesApanthseis.equals(apanthsh);
-            } else if (erwthsh instanceof Erwthsh_SkethLejh) {
-                // Εάν η ερώτηση είναι σκέτη λέξη, ελέγχουμε αν η απάντηση είναι ίδια με τη σωστή απάντηση
-                return erwthsh.getSwsthApanthsh().equals(apanthsh);
-            } else {
-                // Άγνωστος τύπος ερώτησης
-                System.out.println("Unsupported question type.");
-                return false;
-            }
-        }
-
 
 
     @Override
