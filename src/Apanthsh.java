@@ -1,5 +1,6 @@
 import Erwthseis.Erwthsh;
 import Erwthseis.Erwthsh_PollaplhsEpiloghs;
+import Erwthseis.Erwthsh_SkethLejh;
 import Erwthseis.Erwthsh_SumplhrwshKenwn;
 
 import java.util.List;
@@ -35,9 +36,48 @@ public class Apanthsh {
     }
 
 
-
     @Override
     public String toString() {
-        return "Ajiologoumenos: " + ajiologoumenos.toString() + ", Erwthseis.Erwthsh: " + erwthsh.toString() + ", Apanthsh: " + apanthsh;
+        if (apanthsh != null) {
+            return "Apanthsh{" +
+                    "ajiologoumenos=" + ajiologoumenos +
+                    ", erwthsh=" + erwthsh +
+                    ", apanthsh=" + apanthsh +
+                    '}';
+        } else if (apanthsh2 != null) {
+            StringBuilder stringBuilder = new StringBuilder("Apanthsh{")
+                    .append("ajiologoumenos=").append(ajiologoumenos)
+                    .append(", erwthsh=").append(erwthsh)
+                    .append(", apanthsh=[");
+
+            for (Object obj : apanthsh2) {
+                stringBuilder.append(obj.toString()).append(", ");
+            }
+
+            // Remove the last comma and space
+            if (!apanthsh2.isEmpty()) {
+                stringBuilder.setLength(stringBuilder.length() - 2);
+            }
+
+            stringBuilder.append("]}");
+
+            return stringBuilder.toString();
+        }else {
+            return null;
+        }
     }
+
+    public boolean isCorrect() {
+        if (apanthsh2 == null) {
+            // Αν η απάντηση είναι String, ελέγχουμε την ακρίβεια της
+            return erwthsh instanceof Erwthsh_SkethLejh && apanthsh.equalsIgnoreCase(((Erwthsh_SkethLejh) erwthsh).getApanthsh());
+        } else {
+            // Αν η απάντηση είναι λίστα, ελέγχουμε τις επιλογές του χρήστη με τις σωστές απαντήσεις
+            List<Object> correctAnswers = erwthsh instanceof Erwthsh_PollaplhsEpiloghs ?
+                    ((Erwthsh_PollaplhsEpiloghs) erwthsh).getSwstes_apanthseis() :
+                    ((Erwthsh_SumplhrwshKenwn) erwthsh).getLista_lejewn_swsth_seira();
+            return apanthsh2.equals(correctAnswers);
+        }
+    }
+
 }

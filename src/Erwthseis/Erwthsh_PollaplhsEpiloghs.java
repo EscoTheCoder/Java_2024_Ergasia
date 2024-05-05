@@ -13,7 +13,11 @@ public class Erwthsh_PollaplhsEpiloghs extends Erwthsh{
         this.swstes_apanthseis = swstes_apanthseis;
     }
 
-    public List<Object> getSwstesApanthseis() {
+    public List<Object> getApanthseis() {
+        return apanthseis;
+    }
+
+    public List<Object> getSwstes_apanthseis() {
         return swstes_apanthseis;
     }
 }

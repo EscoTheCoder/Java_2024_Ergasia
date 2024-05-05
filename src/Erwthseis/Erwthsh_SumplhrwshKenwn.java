@@ -13,7 +13,11 @@ public class Erwthsh_SumplhrwshKenwn extends Erwthsh{
         this.lista_lejewn_swsth_seira = lista_lejewn_swsth_seira;
     }
 
-    public List<Object> getListaLejewnSeSwsthSeira() {
+    public List<Object> getLista_lejewn() {
+        return lista_lejewn;
+    }
+
+    public List<Object> getLista_lejewn_swsth_seira() {
         return lista_lejewn_swsth_seira;
     }
 }
