@@ -69,10 +69,10 @@ public class Apanthsh {
 
     public boolean isCorrect() {
         if (apanthsh2 == null) {
-            // Αν η απάντηση είναι String, ελέγχουμε την ακρίβεια της
+            // An h apanthsh einai String elegxoume thn akriveia ths
             return erwthsh instanceof Erwthsh_SkethLejh && apanthsh.equalsIgnoreCase(((Erwthsh_SkethLejh) erwthsh).getApanthsh());
         } else {
-            // Αν η απάντηση είναι λίστα, ελέγχουμε τις επιλογές του χρήστη με τις σωστές απαντήσεις
+            // An h apanthsh einai Lista elegxoume tis epiloges tou xrhsth me tis swstes apanthseis
             List<Object> correctAnswers = erwthsh instanceof Erwthsh_PollaplhsEpiloghs ?
                     ((Erwthsh_PollaplhsEpiloghs) erwthsh).getSwstes_apanthseis() :
                     ((Erwthsh_SumplhrwshKenwn) erwthsh).getLista_lejewn_swsth_seira();
