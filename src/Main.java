@@ -67,6 +67,9 @@ public class Main {
                         break;
                     }
 
+
+
+
                     case 2: {
                         System.out.print("Tupos Erwthshs: ");
                         String tupos_erwthshs = in.nextLine().toUpperCase();
@@ -155,6 +158,9 @@ public class Main {
                         }
                         break;
                     }
+
+
+
 
                     case 3: {
                         // Emfanishs Listas Ajiologoumenwn
@@ -281,6 +287,8 @@ public class Main {
                         break;
                     }
 
+
+
                     case 5: {
                         System.out.println("Diathesimoi Ajiologoumenoi:");
                         for (Ajiologoumenos ajio : Lista_Ajiologoumenwn) {
@@ -319,6 +327,7 @@ public class Main {
                     }
 
 
+
                     case 6: {
                         Map<Ajiologoumenos, Integer> correctAnswersCountPerAssessee = new HashMap<>();
 
@@ -345,48 +354,43 @@ public class Main {
 
 
                     case 7: {
-                        System.out.println("Διαθέσιμες ερωτήσεις:");
-                        for (Erwthsh erwt : Lista_Erwthsewn) {
-                            System.out.println(erwt.toString());
-                        }
+                        // Dhmiourgis hashmap gia thn apothikeush tou posostou twn swstws apanthsewn ana erwthsh
+                        Map<Erwthsh, Double> correctAnswersPercentagePerQuestion = new HashMap<>();
 
-                        // Epilogh Erwthshs
-                        System.out.println();
-                        System.out.print("Επιλέξτε ερώτηση (κωδικός): ");
-                        int selectedQuestionCode = in.nextInt();
-                        in.nextLine(); // new line bug
-
-                        Erwthsh selectedQuestion = null;
-                        for (Erwthsh erwt : Lista_Erwthsewn) {
-                            if (erwt.getCode() == selectedQuestionCode) {
-                                selectedQuestion = erwt;
-                                break;
-                            }
-                        }
-
-                        if (selectedQuestion == null) {
-                            System.out.println("Λάθος κωδικός ερώτησης.");
-                            break;
-                        }
-
-                        int totalAnswers = 0;
-                        int correctAnswers = 0;
-
-                        // Ypologismos posostou swston apanthsewn
-                        for (Apanthsh answer : Lista_Apanthsewn) {
-                            if (answer.getErwthsh().equals(selectedQuestion)) {
-                                totalAnswers++;
-                                if (answer.isCorrect()) {
-                                    correctAnswers++;
+                        // Ypologismos tou posostou swstwn apanthsewn gia kathe xrhsth
+                        for (Erwthsh question : Lista_Erwthsewn) {
+                            int totalAnswers = 0;
+                            int correctAnswers = 0;
+                            for (Apanthsh answer : Lista_Apanthsewn) {
+                                if (answer.getErwthsh().equals(question)) {
+                                    totalAnswers++;
+                                    if (answer.isCorrect()) {
+                                        correctAnswers++;
+                                    }
                                 }
                             }
+                            // Ypologismos tou posostou kai apothikeush sto hashmap
+                            double percentage;
+                            if (totalAnswers > 0) {
+                                percentage = ((double) correctAnswers / totalAnswers) * 100;
+                            } else {
+                                percentage = 0;
+                            }
+                            correctAnswersPercentagePerQuestion.put(question, percentage);
                         }
 
-                        double pososto = (double) correctAnswers / totalAnswers * 100;
+                        // Tajinomhsh tou hashmap me bash tou posostou swstwn apanthsewn
+                        List<Map.Entry<Erwthsh, Double>> sortedCorrectAnswersPercentagePerQuestion = new ArrayList<>(correctAnswersPercentagePerQuestion.entrySet());
+                        sortedCorrectAnswersPercentagePerQuestion.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
 
-                        System.out.println("Το ποσοστό σωστών απαντήσεων για την ερώτηση " + selectedQuestion.getPerigrafh() + " είναι: " + pososto + "%");
+                        // Emfanhsh tou posostou swstwn apanthsewn ana erwthsh
+                        System.out.println("Ποσοστό σωστών απαντήσεων ανά ερώτηση:");
+                        for (Map.Entry<Erwthsh, Double> entry : sortedCorrectAnswersPercentagePerQuestion) {
+                            System.out.println(entry.getKey().toString() + ": " + entry.getValue() + "%");
+                        }
                         break;
                     }
+
 
 
                     case 8: {
