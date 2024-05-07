@@ -62,7 +62,8 @@ public class Apanthsh {
             stringBuilder.append("]}");
 
             return stringBuilder.toString();
-        }else {
+        }
+        else {
             return null;
         }
     }
@@ -71,13 +72,24 @@ public class Apanthsh {
         if (apanthsh2 == null) {
             // An h apanthsh einai String elegxoume thn akriveia ths
             return erwthsh instanceof Erwthsh_SkethLejh && apanthsh.equalsIgnoreCase(((Erwthsh_SkethLejh) erwthsh).getApanthsh());
-        } else {
+        }
+        else {
             // An h apanthsh einai Lista elegxoume tis epiloges tou xrhsth me tis swstes apanthseis
-            List<Object> correctAnswers = erwthsh instanceof Erwthsh_PollaplhsEpiloghs ?
-                    ((Erwthsh_PollaplhsEpiloghs) erwthsh).getSwstes_apanthseis() :
-                    ((Erwthsh_SumplhrwshKenwn) erwthsh).getLista_lejewn_swsth_seira();
-            return apanthsh2.equals(correctAnswers);
+            List<Object> correctAnswers;
+            if(erwthsh instanceof Erwthsh_PollaplhsEpiloghs){
+                correctAnswers =((Erwthsh_PollaplhsEpiloghs) erwthsh).getSwstes_apanthseis();
+                boolean flag=true;
+                for(Object item : correctAnswers){
+                    if (!apanthsh2.contains(item)){
+                        flag=false;
+                    }
+                }
+                return flag;
+            }
+            else{
+                correctAnswers =((Erwthsh_SumplhrwshKenwn) erwthsh).getLista_lejewn_swsth_seira();
+                return apanthsh2.equals(correctAnswers);
+            }
         }
     }
-
 }

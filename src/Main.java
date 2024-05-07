@@ -48,7 +48,6 @@ public class Main {
                 System.out.println("8. Εμφάνιση του ποσοστού των σωστών απαντήσεων ανά αξιολογούμενο: ");
                 System.out.println("0. Exit\n");
 
-                System.out.println();
                 System.out.print(">");
                 int choice = in.nextInt();
                 in.nextLine(); //fix to bug me to extra \n
