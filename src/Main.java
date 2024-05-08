@@ -71,7 +71,8 @@ public class Main {
 
 
                     case 2: {
-                        System.out.print("Tupos Erwthshs: ");
+                        System.out.println("Tupoi Erwthsewn  = "+Tupoi_Erwthsewn.Pollaplhs_Epologhs +" - "+Tupoi_Erwthsewn.Sketh_Lejh +" - "+Tupoi_Erwthsewn.Sumplhrwsh_Kenwn+"\n");
+                        System.out.print("Dwse Tupo Erwthshs: ");
                         String tupos_erwthshs = in.nextLine().toUpperCase();
                         //elegxos egkurothtas gia swsto Tupo Erwthshs
                         while (!tupos_erwthshs.equals(Tupoi_Erwthsewn.Pollaplhs_Epologhs.toString().toUpperCase()) &&
