@@ -18,19 +18,19 @@ public class Main {
         List<Erwthsh> Lista_Erwthsewn = new ArrayList<>();
 
         // Erwthsh_PollaplhsEpiloghs
-        Lista_Erwthsewn.add(new Erwthsh_PollaplhsEpiloghs(1, "Poioi einai protathlites NBA?", Arrays.asList("James", "Carry", "Antetokounmpo"), Arrays.asList(1, 3)));
-        Lista_Erwthsewn.add(new Erwthsh_PollaplhsEpiloghs(2, "Poia apo ta parakatw einai zwa?", Arrays.asList("Patata", "Peristeri", "Skulos"), Arrays.asList(2, 3)));
-        Lista_Erwthsewn.add(new Erwthsh_PollaplhsEpiloghs(3, "Poia apo ta parakatw den einai frouta;", Arrays.asList("Mhlo", "Patata", "Portokali", "Trapezi"), Arrays.asList(2, 4)));
+        Lista_Erwthsewn.add(new Erwthsh_PollaplhsEpiloghs(1, "Poioi einai protathlites NBA?", Arrays.asList("James".toUpperCase(), "Carry".toUpperCase(), "Antetokounmpo".toUpperCase()), Arrays.asList(1, 3)));
+        Lista_Erwthsewn.add(new Erwthsh_PollaplhsEpiloghs(2, "Poia apo ta parakatw einai zwa?", Arrays.asList("Patata".toUpperCase(), "Peristeri".toUpperCase(), "Skulos".toUpperCase()), Arrays.asList(2, 3)));
+        Lista_Erwthsewn.add(new Erwthsh_PollaplhsEpiloghs(3, "Poia apo ta parakatw den einai frouta;", Arrays.asList("Mhlo".toUpperCase(), "Patata".toUpperCase(), "Portokali".toUpperCase(), "Trapezi".toUpperCase()), Arrays.asList(2, 4)));
 
         // Erwthsh_SkethLejh
-        Lista_Erwthsewn.add(new Erwthsh_SkethLejh(4, "Poios einai o proponhths ths REAL MADRITIS?", "Zidane"));
-        Lista_Erwthsewn.add(new Erwthsh_SkethLejh(5, "Poios einai o Prothipourgos ths Amerikhs?", "Mpainten"));
-        Lista_Erwthsewn.add(new Erwthsh_SkethLejh(6, "Poia einai h Prwtevousa ths Italias?", "Rwmh"));
+        Lista_Erwthsewn.add(new Erwthsh_SkethLejh(4, "Poios einai o proponhths ths REAL MADRITIS?", "Zidane".toUpperCase()));
+        Lista_Erwthsewn.add(new Erwthsh_SkethLejh(5, "Poios einai o Prothipourgos ths Amerikhs?", "Mpainten".toUpperCase()));
+        Lista_Erwthsewn.add(new Erwthsh_SkethLejh(6, "Poia einai h Prwtevousa ths Italias?", "Rwmh".toUpperCase()));
 
         // Erwthsh_SumplhrwshKenwn
-        Lista_Erwthsewn.add(new Erwthsh_SumplhrwshKenwn(7, "H ? einai h megalhterh ? ston kosmo.", Arrays.asList("Kaspias", "Limnh"), Arrays.asList("Kaspias", "Limnh")));
-        Lista_Erwthsewn.add(new Erwthsh_SumplhrwshKenwn(8, "O ? einai o ? pou vrisketai pio konta ston Hlio.", Arrays.asList("Planhths", "Ermhs"), Arrays.asList("Ermhs", "Planhths")));
-        Lista_Erwthsewn.add(new Erwthsh_SumplhrwshKenwn(9, "To ? tou ouranoun thn hmera einai ? .", Arrays.asList("Mple", "Xrwma"), Arrays.asList("Xrwma", "Mple")));
+        Lista_Erwthsewn.add(new Erwthsh_SumplhrwshKenwn(7, "H ? einai h megalhterh ? ston kosmo.", Arrays.asList("Kaspias".toUpperCase(), "Limnh".toUpperCase()), Arrays.asList("Kaspias".toUpperCase(), "Limnh".toUpperCase())));
+        Lista_Erwthsewn.add(new Erwthsh_SumplhrwshKenwn(8, "O ? einai o ? pou vrisketai pio konta ston Hlio.", Arrays.asList("Planhths".toUpperCase(), "Ermhs".toUpperCase()), Arrays.asList("Ermhs".toUpperCase(), "Planhths".toUpperCase())));
+        Lista_Erwthsewn.add(new Erwthsh_SumplhrwshKenwn(9, "To ? tou ouranoun thn hmera einai ? .", Arrays.asList("Mple".toUpperCase(), "Xrwma".toUpperCase()), Arrays.asList("Xrwma".toUpperCase(), "Mple".toUpperCase())));
 
 
         // Dhmiourgia Lista Apanthsewn
@@ -72,6 +72,7 @@ public class Main {
 
                     case 2: {
                         System.out.println("Tupoi Erwthsewn  = "+Tupoi_Erwthsewn.Pollaplhs_Epologhs +" - "+Tupoi_Erwthsewn.Sketh_Lejh +" - "+Tupoi_Erwthsewn.Sumplhrwsh_Kenwn+"\n");
+
                         System.out.print("Dwse Tupo Erwthshs: ");
                         String tupos_erwthshs = in.nextLine().toUpperCase();
                         //elegxos egkurothtas gia swsto Tupo Erwthshs
@@ -99,14 +100,14 @@ public class Main {
                             System.out.println("Epiloges (Plhkrologiste '.' gia na termatisete): ");
                             while (!(option.equals("."))){
                                 System.out.print(i+")");
-                                option = in.nextLine();
+                                option = in.nextLine().toUpperCase();
                                 apanthseis.add(option);
                                 i++;
                             }
 
 
                             System.out.print("Swstes Apanthseis (Diaxwrismenes me keno): ");
-                            String[] correctAnswersArray = in.nextLine().split(" ");
+                            String[] correctAnswersArray = in.nextLine().toUpperCase().split(" ");
                             for (String correctAnswer : correctAnswersArray) {
                                 swstes_apanthseis.add(Integer.parseInt(correctAnswer));
                             }
@@ -123,7 +124,7 @@ public class Main {
                             String Perigrafh = in.nextLine();
 
                             System.out.print("Swsth Apanthsh: ");
-                            String Swsth_Apanthsh = in.nextLine();
+                            String Swsth_Apanthsh = in.nextLine().toUpperCase();
                             Lista_Erwthsewn.add(new Erwthsh_SkethLejh(Code, Perigrafh, Swsth_Apanthsh));
 
                         }
@@ -143,13 +144,13 @@ public class Main {
                             System.out.println("Epiloges (Plhkrologiste '.' gia na termatisete): ");
                             while (!(option.equals("."))){
                                 System.out.print(j+")");
-                                option = in.nextLine();
+                                option = in.nextLine().toUpperCase();
                                 lista_lejewn.add(option);
                                 j++;
                             }
 
                             System.out.print("Swstes Apanthseis (Diaxwrismenes me keno): ");
-                            Object[] correctAnswersArray = in.nextLine().split(" ");
+                            Object[] correctAnswersArray = in.nextLine().toUpperCase().split(" ");
                             for (Object correctAnswer : correctAnswersArray) {
                                 if(lista_lejewn.contains(correctAnswer)) {
                                     lista_lejewn_se_swsth_seira.add(correctAnswer);
@@ -255,7 +256,7 @@ public class Main {
                             List<Object> answers = new ArrayList<>();
                             String option;
                             System.out.println("Εισάγετε την απάντηση (πληκτρολογήστε '.' για να τερματίσετε): ");
-                            while (!(option = in.nextLine()).equals(".")) {
+                            while (!(option = in.nextLine().toUpperCase()).equals(".")) {
                                 if (options.contains(option)) {
                                     answers.add(option);
                                 } else {
@@ -268,7 +269,7 @@ public class Main {
                         else if (selectedQuestion instanceof Erwthsh_SkethLejh) {
                             // Erwthsh me monh lejh ws apanthsh
                             System.out.print("Εισάγετε την απάντηση: ");
-                            String answer = in.nextLine();
+                            String answer = in.nextLine().toUpperCase();
                             Lista_Apanthsewn.add(new Apanthsh(selectedAssessee, selectedQuestion, answer));
                         }
                         else {
@@ -335,7 +336,7 @@ public class Main {
                         for (Ajiologoumenos ajio : Lista_Ajiologoumenwn) {
                             int correctAnswersCount = 0;
                             for (Apanthsh answer : Lista_Apanthsewn) {
-                                if (answer.getAjiologoumenos().equals(ajio) && answer.isCorrect()) {
+                                if (answer.getAjiologoumenos().equals(ajio) && answer.isCorrect()) { //isCorrect() method tis class Apanthsh
                                     correctAnswersCount++;
                                 }
                             }
