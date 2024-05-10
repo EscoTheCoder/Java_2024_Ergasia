@@ -85,6 +85,7 @@ public class Main {
 
 
                         if (tupos_erwthshs.equals(Tupoi_Erwthsewn.Pollaplhs_Epologhs.toString().toUpperCase())) {
+                            System.out.println("To code prepei na einai megalhtero tou "+Lista_Erwthsewn.size());
                             System.out.print("Code: ");
                             int Code = in.nextInt();
                             in.nextLine(); //fix to bug me to extra \n
@@ -105,17 +106,24 @@ public class Main {
                                 i++;
                             }
 
-
-                            System.out.print("Swstes Apanthseis (Diaxwrismenes me keno): ");
-                            String[] correctAnswersArray = in.nextLine().toUpperCase().split(" ");
-                            for (String correctAnswer : correctAnswersArray) {
-                                swstes_apanthseis.add(Integer.parseInt(correctAnswer));
+                            if(apanthseis.get(0).equals(".")){
+                                System.out.println("Den mporeis na dwseis apanthseis an den exeis orisei pithana apotelesmata");
+                                break;
                             }
-                            Lista_Erwthsewn.add(new Erwthsh_PollaplhsEpiloghs(Code, Perigrafh, apanthseis, swstes_apanthseis));
+                            else{
+                                System.out.print("Swstes Apanthseis (Diaxwrismenes me keno): ");
+                                String[] correctAnswersArray = in.nextLine().toUpperCase().split(" ");
+                                for (String correctAnswer : correctAnswersArray) {
+                                    swstes_apanthseis.add(Integer.parseInt(correctAnswer));
+                                }
+                                Lista_Erwthsewn.add(new Erwthsh_PollaplhsEpiloghs(Code, Perigrafh, apanthseis, swstes_apanthseis));
+                            }
+
 
 
                         }
                         else if (tupos_erwthshs.equals(Tupoi_Erwthsewn.Sketh_Lejh.toString().toUpperCase())) {
+                            System.out.println("To code prepei na einai megalhtero tou "+Lista_Erwthsewn.size());
                             System.out.print("Code: ");
                             int Code = in.nextInt();
                             in.nextLine(); //fix to bug me to extra \n
@@ -129,6 +137,7 @@ public class Main {
 
                         }
                         else if (tupos_erwthshs.equals(Tupoi_Erwthsewn.Sumplhrwsh_Kenwn.toString().toUpperCase())) {
+                            System.out.println("To code prepei na einai megalhtero tou "+Lista_Erwthsewn.size());
                             System.out.print("Code: ");
                             int Code = in.nextInt();
                             in.nextLine(); //fix to bug me to extra \n
@@ -149,14 +158,20 @@ public class Main {
                                 j++;
                             }
 
-                            System.out.print("Swstes Apanthseis (Diaxwrismenes me keno): ");
-                            Object[] correctAnswersArray = in.nextLine().toUpperCase().split(" ");
-                            for (Object correctAnswer : correctAnswersArray) {
-                                if(lista_lejewn.contains(correctAnswer)) {
-                                    lista_lejewn_se_swsth_seira.add(correctAnswer);
-                                }
+                            if(lista_lejewn.get(0).equals(".")){
+                                System.out.println("Den mporeis na dwseis apanthseis an den exeis orisei pithana apotelesmata");
+                                break;
                             }
-                            Lista_Erwthsewn.add(new Erwthsh_SumplhrwshKenwn(Code, Perigrafh, lista_lejewn, lista_lejewn_se_swsth_seira));
+                            else{
+                                System.out.print("Swstes Apanthseis (Diaxwrismenes me keno): ");
+                                Object[] correctAnswersArray = in.nextLine().toUpperCase().split(" ");
+                                for (Object correctAnswer : correctAnswersArray) {
+                                    if(lista_lejewn.contains(correctAnswer)) {
+                                        lista_lejewn_se_swsth_seira.add(correctAnswer);
+                                    }
+                                }
+                                Lista_Erwthsewn.add(new Erwthsh_SumplhrwshKenwn(Code, Perigrafh, lista_lejewn, lista_lejewn_se_swsth_seira));
+                            }
                         }
                         break;
                     }
@@ -431,10 +446,12 @@ public class Main {
 
                     case 0:
                         System.out.println("Exiting...");
+                        in.close();
                         return;
                 }
             }
         }
+
         catch (Exception e) {
             System.out.println(e.getMessage());
         }
