@@ -55,6 +55,7 @@ public class Main {
                 switch (choice) {
 
                     case 1: {
+                        System.out.println("To code prepei na einai megalhtero tou "+Lista_Ajiologoumenwn.size());
                         System.out.print("Code: ");
                         int Code = in.nextInt();
                         in.nextLine(); //fix to bug me to extra \n
