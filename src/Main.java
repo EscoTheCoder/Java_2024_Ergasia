@@ -58,6 +58,12 @@ public class Main {
                         System.out.println("To code prepei na einai megalhtero tou "+Lista_Ajiologoumenwn.size());
                         System.out.print("Code: ");
                         int Code = in.nextInt();
+                        while(Code<=Lista_Ajiologoumenwn.size()){
+                            System.out.println("To code prepei na einai megalhtero tou "+Lista_Ajiologoumenwn.size());
+                            System.out.print("Code: ");
+                            Code = in.nextInt();
+                        }
+
                         in.nextLine(); //fix to bug me to extra \n
                         System.out.print("Onoma: ");
                         String Onoma = in.nextLine();
@@ -89,8 +95,13 @@ public class Main {
                             System.out.println("To code prepei na einai megalhtero tou "+Lista_Erwthsewn.size());
                             System.out.print("Code: ");
                             int Code = in.nextInt();
-                            in.nextLine(); //fix to bug me to extra \n
+                            while(Code<=Lista_Erwthsewn.size()){
+                                System.out.println("To code prepei na einai megalhtero tou "+Lista_Erwthsewn.size());
+                                System.out.print("Code: ");
+                                Code = in.nextInt();
+                            }
 
+                            in.nextLine(); //fix to bug me to extra \n
                             System.out.print("Perigrafh: ");
                             String Perigrafh = in.nextLine();
 
@@ -103,7 +114,9 @@ public class Main {
                             while (!(option.equals("."))){
                                 System.out.print(i+")");
                                 option = in.nextLine().toUpperCase();
-                                apanthseis.add(option);
+                                if(!option.equals(".")) {
+                                    apanthseis.add(option);
+                                }
                                 i++;
                             }
 
@@ -127,6 +140,12 @@ public class Main {
                             System.out.println("To code prepei na einai megalhtero tou "+Lista_Erwthsewn.size());
                             System.out.print("Code: ");
                             int Code = in.nextInt();
+                            while(Code<=Lista_Erwthsewn.size()){
+                                System.out.println("To code prepei na einai megalhtero tou "+Lista_Erwthsewn.size());
+                                System.out.print("Code: ");
+                                Code = in.nextInt();
+                            }
+
                             in.nextLine(); //fix to bug me to extra \n
 
                             System.out.print("Perigrafh: ");
@@ -141,6 +160,12 @@ public class Main {
                             System.out.println("To code prepei na einai megalhtero tou "+Lista_Erwthsewn.size());
                             System.out.print("Code: ");
                             int Code = in.nextInt();
+                            while(Code<=Lista_Erwthsewn.size()){
+                                System.out.println("To code prepei na einai megalhtero tou "+Lista_Erwthsewn.size());
+                                System.out.print("Code: ");
+                                Code = in.nextInt();
+                            }
+
                             in.nextLine(); //fix to bug me to extra \n
 
                             System.out.print("Perigrafh: ");
@@ -155,7 +180,9 @@ public class Main {
                             while (!(option.equals("."))){
                                 System.out.print(j+")");
                                 option = in.nextLine().toUpperCase();
-                                lista_lejewn.add(option);
+                                if(!option.equals(".")) {
+                                    lista_lejewn.add(option);
+                                }
                                 j++;
                             }
 
