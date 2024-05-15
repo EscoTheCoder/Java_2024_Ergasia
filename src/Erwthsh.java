@@ -1,19 +1,25 @@
 import java.util.List;
 
-public class Erwthsh {
+public class Erwthsh{
     private int code;
-    private String description;
+    private String perigrafh;
 
-    public Erwthsh(int code, String description) {
+
+    public Erwthsh(int code, String perigrafh) {
         this.code = code;
-        this.description = description;
+        this.perigrafh = perigrafh;
     }
 
-    public Erwthsh(int code, String description, Tupoi_Erwthsewn tupoiErwthsewn, List<String> list) {
+    public int getCode() {
+        return code;
+    }
+
+    public String getPerigrafh() {
+        return perigrafh;
     }
 
     @Override
     public String toString() {
-        return "Code: " + code + ", Description: " + description;
+        return "Code: " + code + ", Perigrafh: " + perigrafh;
     }
 }

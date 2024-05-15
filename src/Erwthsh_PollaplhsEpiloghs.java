@@ -1,8 +1,6 @@
-package Erwthseis;
-
 import java.util.List;
 
-public class Erwthsh_PollaplhsEpiloghs extends Erwthsh{
+public class Erwthsh_PollaplhsEpiloghs extends Erwthsh {
 
     List<Object> apanthseis;
     List<Object> swstes_apanthseis;

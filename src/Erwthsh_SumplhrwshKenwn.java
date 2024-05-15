@@ -1,8 +1,6 @@
-package Erwthseis;
-
 import java.util.List;
 
-public class Erwthsh_SumplhrwshKenwn extends Erwthsh{
+public class Erwthsh_SumplhrwshKenwn extends Erwthsh {
 
     List<Object> lista_lejewn;
     List<Object> lista_lejewn_swsth_seira;

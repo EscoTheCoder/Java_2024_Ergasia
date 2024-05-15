@@ -1,11 +1,6 @@
-import Erwthseis.Erwthsh;
-import Erwthseis.Erwthsh_PollaplhsEpiloghs;
-import Erwthseis.Erwthsh_SkethLejh;
-import Erwthseis.Erwthsh_SumplhrwshKenwn;
-
 import java.util.*;
 
-public class Main {
+public class mainApp {
     public static void main(String[] args) {
         // Dhmiourgia listas Ajiologoumenwn
         List<Ajiologoumenos> Lista_Ajiologoumenwn = new ArrayList<>();
@@ -38,14 +33,14 @@ public class Main {
 
         try (Scanner in = new Scanner(System.in)) {
             for (; ; ) {
-                System.out.println("\n1. Εισαγωγή νέου αξιολογούμενου: ");
-                System.out.println("2. Εισαγωγή νέας ερώτηση: ");
-                System.out.println("3. Εισαγωγή νέας απάντησης: ");
-                System.out.println("4. Εμφάνιση των ερωτήσεων: ");
-                System.out.println("5. Εμφάνιση των απαντήσεων ενός αξιολογούμενου: ");
-                System.out.println("6. Εμφάνιση το πλήθος των σωστών απαντήσεων ανά αξιολογούμενο: ");
-                System.out.println("7. Υπολογισμός του ποσοστού σωστών απαντήσεων μιας ερώτησης: ");
-                System.out.println("8. Εμφάνιση του ποσοστού των σωστών απαντήσεων ανά αξιολογούμενο: ");
+                System.out.println("\n1. Eisagwgh neou ajiologoumenou: ");
+                System.out.println("2. Eisagwgh neas erwthshs: ");
+                System.out.println("3. Eisagwgh neas apanthshs: ");
+                System.out.println("4. Emfanish twn erwthsewn: ");
+                System.out.println("5. Emfanish twn apanthsewn enos ajiologoumenou: ");
+                System.out.println("6. Emfanish to plithos twn apanthsewn ana ajiologoumenou: ");
+                System.out.println("7. Ypologismos tou posostou swstwn apanthsewn mias erwthshs: ");
+                System.out.println("8. Emfanish tou posostou twn swstwn apanthsewn ana ajiologoumeno: ");
                 System.out.println("0. Exit\n");
 
                 System.out.print(">");
@@ -209,13 +204,13 @@ public class Main {
 
                     case 3: {
                         // Emfanishs Listas Ajiologoumenwn
-                        System.out.println("Διαθέσιμοι αξιολογούμενοι:");
+                        System.out.println("Diathesimoi Ajiologoumenoi:");
                         for (Ajiologoumenos ajio : Lista_Ajiologoumenwn) {
                             System.out.println(ajio.toString());
                         }
 
                         // Epilogh Ajiologoumenou
-                        System.out.print("Επιλέξτε αξιολογούμενο (κωδικός): ");
+                        System.out.print("Epilejte Ajiologoumeno (kwdikos): ");
                         int selectedAssesseeCode = in.nextInt();
                         in.nextLine(); // new line bug
 
@@ -228,20 +223,20 @@ public class Main {
                         }
 
                         if (selectedAssessee == null) {
-                            System.out.println("Λάθος κωδικός αξιολογούμενου.");
+                            System.out.println("Lathos Kwdikos Ajiologoumenou.");
                             break;
                         }
 
                         // Emfanish Diathesimwn Erwthsewn
                         System.out.println();
-                        System.out.println("Διαθέσιμες ερωτήσεις:");
+                        System.out.println("Diathesimes Erwthseis:");
                         for (Erwthsh erwt : Lista_Erwthsewn) {
                             System.out.println(erwt.toString());
                         }
 
                         // Epilogh Erwthshs
                         System.out.println();
-                        System.out.print("Επιλέξτε ερώτηση (κωδικός): ");
+                        System.out.print("Epilejte Erwthsh (Kwdikos): ");
                         int selectedQuestionCode = in.nextInt();
                         in.nextLine(); // Ανάγνωση newline
 
@@ -254,14 +249,14 @@ public class Main {
                         }
 
                         if (selectedQuestion == null) {
-                            System.out.println("Λάθος κωδικός ερώτησης.");
+                            System.out.println("Lathos Kwdikos Erwthshs.");
                             break;
                         }
 
                         // Emfanish epilogwn analoga me ton tupo ths Erwthshs
                         if (selectedQuestion instanceof Erwthsh_PollaplhsEpiloghs || selectedQuestion instanceof Erwthsh_SumplhrwshKenwn) {
                             // Erwthsh_PollaplhsEpiloghs H Erwthsh_SumplhrwshKenwn
-                            System.out.println("Διαθέσιμες επιλογές:");
+                            System.out.println("Diathesismes Epiloges:");
                             List<Object> options = selectedQuestion instanceof Erwthsh_PollaplhsEpiloghs ?
                                     ((Erwthsh_PollaplhsEpiloghs) selectedQuestion).getApanthseis() :
                                     ((Erwthsh_SumplhrwshKenwn) selectedQuestion).getLista_lejewn();
@@ -277,17 +272,17 @@ public class Main {
                             List<Object> options = question_pollaplhs.getApanthseis();
                             List<Object> answers = new ArrayList<>();
                             String option;
-                            System.out.println("Εισάγετε την απάντηση (πληκτρολογήστε '.' για να τερματίσετε): ");
+                            System.out.println("Eisagetai thn Apanthsh (Plhktorogiste '.' gia na termatisete): ");
                             while (!(option = in.nextLine()).equals(".")) {
                                 try {
                                     int answerNumber = Integer.parseInt(option);
                                     if (answerNumber >= 1 && answerNumber <= options.size()) {
                                         answers.add(answerNumber);
                                     } else {
-                                        System.out.println("Μη έγκυρη επιλογή. Δοκιμάστε ξανά.");
+                                        System.out.println("Mh egkurh epilogh. Dokimste jana.");
                                     }
                                 } catch (NumberFormatException e) {
-                                    System.out.println("Παρακαλώ εισάγετε έγκυρο αριθμό.");
+                                    System.out.println("Parakalo eisagetai egkurw arithmo.");
                                 }
                             }
                             Lista_Apanthsewn.add(new Apanthsh(selectedAssessee, selectedQuestion, answers));
@@ -298,12 +293,12 @@ public class Main {
                             List<Object> options = question.getLista_lejewn();
                             List<Object> answers = new ArrayList<>();
                             String option;
-                            System.out.println("Εισάγετε την απάντηση (πληκτρολογήστε '.' για να τερματίσετε): ");
+                            System.out.println("Eisagetai thn Apanthsh (Plhktorogiste '.' gia na termatisete): ");
                             while (!(option = in.nextLine().toUpperCase()).equals(".")) {
                                 if (options.contains(option)) {
                                     answers.add(option);
                                 } else {
-                                    System.out.println("Μη έγκυρη επιλογή. Δοκιμάστε ξανά.");
+                                    System.out.println("Mh egkirh epilogh. Dokimste jana.");
                                 }
                             }
                             Lista_Apanthsewn.add(new Apanthsh(selectedAssessee, selectedQuestion, answers));
@@ -311,12 +306,12 @@ public class Main {
 
                         else if (selectedQuestion instanceof Erwthsh_SkethLejh) {
                             // Erwthsh me monh lejh ws apanthsh
-                            System.out.print("Εισάγετε την απάντηση: ");
+                            System.out.print("Eisagetai thn Apanthsh: ");
                             String answer = in.nextLine().toUpperCase();
                             Lista_Apanthsewn.add(new Apanthsh(selectedAssessee, selectedQuestion, answer));
                         }
                         else {
-                            System.out.println("Μη υποστηριζόμενος τύπος ερώτησης.");
+                            System.out.println("Mh upostirizomenos tupos erwthshs.");
                         }
                         break;
                     }
@@ -389,7 +384,7 @@ public class Main {
                         List<Map.Entry<Ajiologoumenos, Integer>> sortedCorrectAnswersCountPerAssessee = new ArrayList<>(correctAnswersCountPerAssessee.entrySet());
                         sortedCorrectAnswersCountPerAssessee.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
 
-                        System.out.println("Πλήθος σωστών απαντήσεων ανά αξιολογούμενο:");
+                        System.out.println("Plithos swstwn apanthsewn ana ajiologoumeno:");
                         for (Map.Entry<Ajiologoumenos, Integer> entry : sortedCorrectAnswersCountPerAssessee) {
                             System.out.println(entry.getKey().getOnoma() + ": " + entry.getValue());
                         }
@@ -429,7 +424,7 @@ public class Main {
                         sortedCorrectAnswersPercentagePerQuestion.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
 
                         // Emfanhsh tou posostou swstwn apanthsewn ana erwthsh
-                        System.out.println("Ποσοστό σωστών απαντήσεων ανά ερώτηση:");
+                        System.out.println("Pososto swstwn apanthsewn ana erwthsh:");
                         for (Map.Entry<Erwthsh, Double> entry : sortedCorrectAnswersPercentagePerQuestion) {
                             System.out.println(entry.getKey().toString() + ": " + entry.getValue() + "%");
                         }
@@ -464,7 +459,7 @@ public class Main {
                         sortedCorrectAnswersPercentagePerAssessee.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
 
                         // Emfanhsh tou posostou swstwn apanthsewn ana ajiologoumeno
-                        System.out.println("Ποσοστό σωστών απαντήσεων ανά αξιολογούμενο:");
+                        System.out.println("Pososto swstwn apanthsewn ana Ajiologoumeno:");
                         for (Map.Entry<Ajiologoumenos, Double> entry : sortedCorrectAnswersPercentagePerAssessee) {
                             System.out.println(entry.getKey().getOnoma() + ": " + entry.getValue() + "%");
                         }

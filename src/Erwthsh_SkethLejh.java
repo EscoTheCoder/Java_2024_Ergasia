@@ -1,6 +1,4 @@
-package Erwthseis;
-
-public class Erwthsh_SkethLejh extends Erwthsh{
+public class Erwthsh_SkethLejh extends Erwthsh {
 
     private String apanthsh;
 
