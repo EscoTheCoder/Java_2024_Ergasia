@@ -476,7 +476,7 @@ public class mainApp {
         }
 
         catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Lathos epilogh to MENU den diathetei auth thn epilogh");
         }
 
     }
