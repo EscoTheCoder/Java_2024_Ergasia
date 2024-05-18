@@ -1,11 +1,12 @@
 import java.util.List;
 
-public class Erwthsh{
+public class Question{
     private int code;
     private String perigrafh;
+    int type = 0;
+    
 
-
-    public Erwthsh(int code, String perigrafh) {
+    public Question(int code, String perigrafh) {
         this.code = code;
         this.perigrafh = perigrafh;
     }
@@ -17,6 +18,7 @@ public class Erwthsh{
     public String getPerigrafh() {
         return perigrafh;
     }
+
 
     @Override
     public String toString() {

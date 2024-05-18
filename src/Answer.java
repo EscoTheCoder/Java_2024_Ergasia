@@ -1,28 +1,28 @@
 import java.util.List;
 
-public class Apanthsh {
-    private Ajiologoumenos ajiologoumenos;
-    private Erwthsh erwthsh;
+public class Answer {
+    private Evaluatee ajiologoumenos;
+    private Question erwthsh;
     private String apanthsh;
     List<Object> apanthsh2;
 
-    public Apanthsh(Ajiologoumenos ajiologoumenos, Erwthsh erwthsh, String apanthsh) {
+    public Answer(Evaluatee ajiologoumenos, Question erwthsh, String apanthsh) {
         this.ajiologoumenos = ajiologoumenos;
         this.erwthsh = erwthsh;
         this.apanthsh = apanthsh;
     }
 
-    public Apanthsh(Ajiologoumenos ajiologoumenos, Erwthsh erwthsh, List<Object> apanthsh2) {
+    public Answer(Evaluatee ajiologoumenos, Question erwthsh, List<Object> apanthsh2) {
         this.ajiologoumenos = ajiologoumenos;
         this.erwthsh = erwthsh;
         this.apanthsh2 = apanthsh2;
     }
 
-    public Ajiologoumenos getAjiologoumenos() {
+    public Evaluatee getEvaluatee() {
         return ajiologoumenos;
     }
 
-    public Erwthsh getErwthsh() {
+    public Question getErwthsh() {
         return erwthsh;
     }
 
@@ -66,13 +66,13 @@ public class Apanthsh {
     public boolean isCorrect() {
         if (apanthsh2 == null) {
             // An h apanthsh einai String elegxoume thn akriveia ths
-            return erwthsh instanceof Erwthsh_SkethLejh && apanthsh.equalsIgnoreCase(((Erwthsh_SkethLejh) erwthsh).getApanthsh());
+            return erwthsh instanceof SingleChoiceQuestion && apanthsh.equalsIgnoreCase(((SingleChoiceQuestion) erwthsh).getApanthsh());
         }
         else {
             // An h apanthsh einai Lista elegxoume tis epiloges tou xrhsth me tis swstes apanthseis
             List<Object> correctAnswers;
-            if(erwthsh instanceof Erwthsh_PollaplhsEpiloghs){
-                correctAnswers =((Erwthsh_PollaplhsEpiloghs) erwthsh).getSwstes_apanthseis();
+            if(erwthsh instanceof MultipleChoiceQuestion){
+                correctAnswers =((MultipleChoiceQuestion) erwthsh).getSwstes_apanthseis();
                 boolean flag=true;
                 for(Object item : correctAnswers){
                     if (!apanthsh2.contains(item)){
@@ -82,7 +82,7 @@ public class Apanthsh {
                 return flag;
             }
             else{
-                correctAnswers =((Erwthsh_SumplhrwshKenwn) erwthsh).getLista_lejewn_swsth_seira();
+                correctAnswers =((CorrectOrderQuestion) erwthsh).getLista_lejewn_swsth_seira();
                 return apanthsh2.equals(correctAnswers);
             }
         }

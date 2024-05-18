@@ -1,9 +1,11 @@
-class Ajiologoumenos {
+class Evaluatee {
     private int code;
     private String onoma;
     private String epwnhmo;
+    
 
-    public Ajiologoumenos(int code, String onoma, String epwnhmo) {
+
+    public Evaluatee(int code, String onoma, String epwnhmo) {
         this.code = code;
         this.onoma = onoma;
         this.epwnhmo = epwnhmo;
