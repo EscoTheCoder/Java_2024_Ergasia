@@ -5,10 +5,10 @@ public class ListOfEvaluatees extends ArrayList<Evaluatee> {
     boolean codeIsUnique(int code) {
         for(Evaluatee A : this ) {
             if (A.getCode() == code) {
-                return true;
+                return false;
             } 
         }
-        return false;
+        return true;
     }
 
     Evaluatee getAssessee(int code){
