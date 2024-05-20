@@ -33,7 +33,7 @@ public class ListOfQuestions extends ArrayList<Question> {
             String option = "";
             int i = 1;
 
-            System.out.println("Epiloges (Plhkrologiste '.' gia na termatisete): ");
+            System.out.println("Enter your choices (Type '.' to finish): ");
             while (!(option.equals("."))) {
                 System.out.print(i + ")");
                 option = in.nextLine().toUpperCase();
@@ -44,7 +44,7 @@ public class ListOfQuestions extends ArrayList<Question> {
             }
 
             if (apanthseis.get(0).equals(".")) {
-                System.out.println("Den mporeis na dwseis apanthseis an den exeis orisei pithana apotelesmata");
+                System.out.println("You can't give ansewers if you dont have some inputs already");
             
             } else {
                 System.out.print("Correct answers (With a gap in between): ");
@@ -68,7 +68,7 @@ public class ListOfQuestions extends ArrayList<Question> {
             String option = "";
             int j = 1;
 
-            System.out.println("Epiloges (Plhkrologiste '.' gia na termatisete): ");
+            System.out.println("Enter your choices (Type '.' to finish): ");
             while (!(option.equals("."))) {
                 System.out.print(j + ")");
                 option = in.nextLine().toUpperCase();
@@ -79,9 +79,9 @@ public class ListOfQuestions extends ArrayList<Question> {
             }
 
             if (lista_lejewn.get(0).equals(".")) {
-                System.out.println("Den mporeis na dwseis apanthseis an den exeis orisei pithana apotelesmata");
+                System.out.println("You can't give ansewers if you dont have some inputs already");
             } else {
-                System.out.print("Swstes Apanthseis (Diaxwrismenes me keno): ");
+                System.out.print("Correct Answers (Separated by a space): ");
                 Object[] correctAnswersArray = in.nextLine().toUpperCase().split(" ");
                 for (Object correctAnswer : correctAnswersArray) {
                     if (lista_lejewn.contains(correctAnswer)) {

@@ -93,18 +93,18 @@ public class mainApp {
                         }
 
                         System.out.println("Select a unique code");
+                        System.out.print("Code: ");
+                        int Code = in.nextInt();
+                        while(QuestionsList.codeIsUnique(Code)){
+                            System.out.println("Code must be unique");
                             System.out.print("Code: ");
-                            int Code = in.nextInt();
-                            while(QuestionsList.codeIsUnique(Code)){
-                                System.out.println("Code must be unique");
-                                System.out.print("Code: ");
-                                Code = in.nextInt();
-                            }
+                            Code = in.nextInt();
+                        }
 
-                            in.nextLine(); //fix to bug me to extra \n
-                            System.out.print("Description: ");
-                            String description = in.nextLine();
-                            QuestionsList.addExercise(Code, description, type);
+                        in.nextLine(); //fix to bug me to extra \n
+                        System.out.print("Description: ");
+                        String description = in.nextLine();
+                        QuestionsList.addExercise(Code, description, type);
 
 
 
@@ -168,7 +168,7 @@ public class mainApp {
                         }
 
                         // Eisagwgh apanthshs analoga me ton tupo ths Erwthshs
-                        
+
                         if (selectedQuestion.type == 1) {
                             // Erwthsh_PollaplhsEpiloghs
                             MultipleChoiceQuestion question_pollaplhs = (MultipleChoiceQuestion) selectedQuestion;

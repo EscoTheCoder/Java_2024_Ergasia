@@ -49,7 +49,6 @@ public class Answer {
                 stringBuilder.append(obj.toString()).append(", ");
             }
 
-            // Remove the last comma and space
             if (!apanthsh2.isEmpty()) {
                 stringBuilder.setLength(stringBuilder.length() - 2);
             }
@@ -65,11 +64,9 @@ public class Answer {
 
     public boolean isCorrect() {
         if (apanthsh2 == null) {
-            // An h apanthsh einai String elegxoume thn akriveia ths
             return erwthsh instanceof SingleChoiceQuestion && apanthsh.equalsIgnoreCase(((SingleChoiceQuestion) erwthsh).getApanthsh());
         }
         else {
-            // An h apanthsh einai Lista elegxoume tis epiloges tou xrhsth me tis swstes apanthseis
             List<Object> correctAnswers;
             if(erwthsh instanceof MultipleChoiceQuestion){
                 correctAnswers =((MultipleChoiceQuestion) erwthsh).getSwstes_apanthseis();
