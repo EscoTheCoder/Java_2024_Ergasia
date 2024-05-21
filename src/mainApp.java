@@ -267,7 +267,7 @@ public class mainApp {
 
 
                     case 6: {
-                        Map<Evaluatee, Integer> correctAnswersCountPerAssessee = new HashMap<>();
+                        Map<Evaluatee, Integer> correctAnswersCountPerEvaluatee = new HashMap<>();
 
                         for (Evaluatee ajio : EvaluateesList) {
                             int correctAnswersCount = 0;
@@ -276,14 +276,14 @@ public class mainApp {
                                     correctAnswersCount++;
                                 }
                             }
-                            correctAnswersCountPerAssessee.put(ajio, correctAnswersCount);
+                            correctAnswersCountPerEvaluatee.put(ajio, correctAnswersCount);
                         }
 
-                        List<Map.Entry<Evaluatee, Integer>> sortedCorrectAnswersCountPerAssessee = new ArrayList<>(correctAnswersCountPerAssessee.entrySet());
-                        sortedCorrectAnswersCountPerAssessee.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+                        List<Map.Entry<Evaluatee, Integer>> sortedCorrectAnswersCountPerEvaluatee = new ArrayList<>(correctAnswersCountPerEvaluatee.entrySet());
+                        sortedCorrectAnswersCountPerEvaluatee.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
 
                         System.out.println("Correct Answers Per Evaluatee:");
-                        for (Map.Entry<Evaluatee, Integer> entry : sortedCorrectAnswersCountPerAssessee) {
+                        for (Map.Entry<Evaluatee, Integer> entry : sortedCorrectAnswersCountPerEvaluatee) {
                             System.out.println(entry.getKey().getOnoma() + ": " + entry.getValue());
                         }
                         break;
@@ -333,7 +333,7 @@ public class mainApp {
 
                     case 8: {
                         // Dhmiourgia hashmap gia thn apothikeush tou posostou twn swstwn apanthsewn ana Ajiologoumeno
-                        Map<Evaluatee, Double> correctAnswersPercentagePerAssessee = new HashMap<>();
+                        Map<Evaluatee, Double> correctAnswersPercentagePerEvaluatee = new HashMap<>();
 
                         // Ypologismos tou posostou swstwn apanthsewn gia kathe Ajiologoumeno
                         for (Evaluatee ajio : EvaluateesList) {
@@ -349,16 +349,16 @@ public class mainApp {
                             }
                             // Ypologismos tou posostou kai apothikeush sto hashmap
                             double percentage = totalAnswers > 0 ? ((double) correctAnswers / totalAnswers) * 100 : 0;
-                            correctAnswersPercentagePerAssessee.put(ajio, percentage);
+                            correctAnswersPercentagePerEvaluatee.put(ajio, percentage);
                         }
 
                         // Tajinomhsh tou hashmap vasei tou posostou swstwn apanthsewn
-                        List<Map.Entry<Evaluatee, Double>> sortedCorrectAnswersPercentagePerAssessee = new ArrayList<>(correctAnswersPercentagePerAssessee.entrySet());
-                        sortedCorrectAnswersPercentagePerAssessee.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+                        List<Map.Entry<Evaluatee, Double>> sortedCorrectAnswersPercentagePerEvaluatee = new ArrayList<>(correctAnswersPercentagePerEvaluatee.entrySet());
+                        sortedCorrectAnswersPercentagePerEvaluatee.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
 
                         // Emfanhsh tou posostou swstwn apanthsewn ana ajiologoumeno
                         System.out.println("Percentage of correct answers per Evaluatee:");
-                        for (Map.Entry<Evaluatee, Double> entry : sortedCorrectAnswersPercentagePerAssessee) {
+                        for (Map.Entry<Evaluatee, Double> entry : sortedCorrectAnswersPercentagePerEvaluatee) {
                             System.out.println(entry.getKey().getOnoma() + ": " + entry.getValue() + "%");
                         }
                         break;
