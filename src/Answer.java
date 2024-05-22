@@ -1,55 +1,55 @@
 import java.util.List;
 
 public class Answer {
-    private Evaluatee ajiologoumenos;
-    private Question erwthsh;
-    private String apanthsh;
-    List<Object> apanthsh2;
+    private Evaluatee evaluatee;
+    private Question question;
+    private String answer;
+    List<Object> answer2;
 
     public Answer(Evaluatee ajiologoumenos, Question erwthsh, String apanthsh) {
-        this.ajiologoumenos = ajiologoumenos;
-        this.erwthsh = erwthsh;
-        this.apanthsh = apanthsh;
+        this.evaluatee = ajiologoumenos;
+        this.question = erwthsh;
+        this.answer = apanthsh;
     }
 
     public Answer(Evaluatee ajiologoumenos, Question erwthsh, List<Object> apanthsh2) {
-        this.ajiologoumenos = ajiologoumenos;
-        this.erwthsh = erwthsh;
-        this.apanthsh2 = apanthsh2;
+        this.evaluatee = ajiologoumenos;
+        this.question = erwthsh;
+        this.answer2 = apanthsh2;
     }
 
     public Evaluatee getEvaluatee() {
-        return ajiologoumenos;
+        return evaluatee;
     }
 
-    public Question getErwthsh() {
-        return erwthsh;
+    public Question getQuestion() {
+        return question;
     }
 
-    public String getApanthsh() {
-        return apanthsh;
+    public String getAnswer() {
+        return answer;
     }
 
 
     @Override
     public String toString() {
-        if (apanthsh != null) {
-            return "Apanthsh{" +
-                    "ajiologoumenos=" + ajiologoumenos +
-                    ", erwthsh=" + erwthsh +
-                    ", apanthsh=" + apanthsh +
+        if (answer != null) {
+            return "Answer{" +
+                    "evaluate=" + evaluatee +
+                    ", question=" + question +
+                    ", answer=" + answer +
                     '}';
-        } else if (apanthsh2 != null) {
-            StringBuilder stringBuilder = new StringBuilder("Apanthsh{")
-                    .append("ajiologoumenos=").append(ajiologoumenos)
-                    .append(", erwthsh=").append(erwthsh)
-                    .append(", apanthsh=[");
+        } else if (answer2 != null) {
+            StringBuilder stringBuilder = new StringBuilder("Answer{")
+                    .append("evaluate=").append(evaluatee)
+                    .append(", question=").append(question)
+                    .append(", answer=[");
 
-            for (Object obj : apanthsh2) {
+            for (Object obj : answer2) {
                 stringBuilder.append(obj.toString()).append(", ");
             }
 
-            if (!apanthsh2.isEmpty()) {
+            if (!answer2.isEmpty()) {
                 stringBuilder.setLength(stringBuilder.length() - 2);
             }
 
@@ -63,24 +63,24 @@ public class Answer {
     }
 
     public boolean isCorrect() {
-        if (apanthsh2 == null) {
-            return erwthsh instanceof SingleChoiceQuestion && apanthsh.equalsIgnoreCase(((SingleChoiceQuestion) erwthsh).getApanthsh());
+        if (answer2 == null) {
+            return question instanceof SingleChoiceQuestion && answer.equalsIgnoreCase(((SingleChoiceQuestion) question).getApanthsh());
         }
         else {
             List<Object> correctAnswers;
-            if(erwthsh instanceof MultipleChoiceQuestion){
-                correctAnswers =((MultipleChoiceQuestion) erwthsh).getSwstes_apanthseis();
+            if(question instanceof MultipleChoiceQuestion){
+                correctAnswers =((MultipleChoiceQuestion) question).getSwstes_apanthseis();
                 boolean flag=true;
                 for(Object item : correctAnswers){
-                    if (!apanthsh2.contains(item)){
+                    if (!answer2.contains(item)){
                         flag=false;
                     }
                 }
                 return flag;
             }
             else{
-                correctAnswers =((CorrectOrderQuestion) erwthsh).getLista_lejewn_swsth_seira();
-                return apanthsh2.equals(correctAnswers);
+                correctAnswers =((CorrectOrderQuestion) question).getLista_lejewn_swsth_seira();
+                return answer2.equals(correctAnswers);
             }
         }
     }

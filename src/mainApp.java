@@ -1,3 +1,6 @@
+//Omada Xrhswtwn 012
+//p3230173 - p3230170
+
 import java.util.*;
 
 public class mainApp {
@@ -301,7 +304,7 @@ public class mainApp {
                             int totalAnswers = 0;
                             int correctAnswers = 0;
                             for (Answer answer : Lista_Apanthsewn) {
-                                if (answer.getErwthsh().equals(question)) {
+                                if (answer.getQuestion().equals(question)) {
                                     totalAnswers++;
                                     if (answer.isCorrect()) {
                                         correctAnswers++;
