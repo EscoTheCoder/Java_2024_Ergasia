@@ -196,12 +196,13 @@ public class mainApp {
                             List<Object> options = question.getLista_lejewn();
                             List<Object> answers = new ArrayList<>();
                             String option;
-                            System.out.println("Enter your answer (Type '.' to finish): ");
-                            while (!(option = in.nextLine().toUpperCase()).equals(".")) {
+                            System.out.println("Select the answer in the correct order: ");
+                            while (answers.size()<options.size()) {
+                                option=in.nextLine().toUpperCase();
                                 if (options.contains(option)) {
                                     answers.add(option);
                                 } else {
-                                    System.out.println("Enter your answer (Type '.' to finish): ");
+                                    System.out.println("Invalid option");
                                 }
                             }
                             Lista_Apanthsewn.add(new Answer(selectedEvaluatee, selectedQuestion, answers));

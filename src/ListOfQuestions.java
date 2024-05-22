@@ -47,10 +47,18 @@ public class ListOfQuestions extends ArrayList<Question> {
                 System.out.println("You can't give ansewers if you dont have some inputs already");
             
             } else {
-                System.out.print("Correct answers (With a gap in between): ");
-                String[] correctAnswersArray = in.nextLine().toUpperCase().split(" ");
-                for (String correctAnswer : correctAnswersArray) {
-                    swstes_apanthseis.add(Integer.parseInt(correctAnswer));
+                System.out.println("Correct answers (With a gap in between): ");
+                while(swstes_apanthseis.size()<apanthseis.size()){
+                    Integer x = in.nextInt();
+                    if(x.equals(0)){
+                        break;
+                    }
+                    else if (x<0 || x>=apanthseis.size()){
+                        System.out.println("Error invalid number input");
+                    }
+                    else {
+                        swstes_apanthseis.add(x);
+                    }
                 }
                 this.add(new MultipleChoiceQuestion(code, description, 1, apanthseis, swstes_apanthseis));
             }
@@ -79,13 +87,15 @@ public class ListOfQuestions extends ArrayList<Question> {
             }
 
             if (lista_lejewn.get(0).equals(".")) {
-                System.out.println("You can't give ansewers if you dont have some inputs already");
+                System.out.println("You can't give answers if you dont have some inputs already");
             } else {
                 System.out.print("Correct Answers (Separated by a space): ");
-                Object[] correctAnswersArray = in.nextLine().toUpperCase().split(" ");
-                for (Object correctAnswer : correctAnswersArray) {
-                    if (lista_lejewn.contains(correctAnswer)) {
-                        lista_lejewn_se_swsth_seira.add(correctAnswer);
+                while(lista_lejewn_se_swsth_seira.size()<lista_lejewn.size()) {
+                    String x = in.nextLine().toUpperCase();
+                    if (!lista_lejewn.contains(x)) {
+                        System.out.println("Error invalid input");
+                    } else {
+                        lista_lejewn_se_swsth_seira.add(x.toUpperCase());
                     }
                 }
                 this.add(new CorrectOrderQuestion(code, description, 3, lista_lejewn, lista_lejewn_se_swsth_seira));

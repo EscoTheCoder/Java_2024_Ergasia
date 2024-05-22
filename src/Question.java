@@ -22,6 +22,6 @@ public class Question{
 
     @Override
     public String toString() {
-        return "Code: " + code + ", Perigrafh: " + perigrafh;
+        return "Code: " + code + ", Description: " + perigrafh;
     }
 }
